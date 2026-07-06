@@ -76,7 +76,7 @@ var useCmd = &cobra.Command{
 
 		greenCheck := lipgloss.NewStyle().Foreground(lipgloss.Color("108")).Render("✓")
 		output := fmt.Sprintf("%s Switched to lab '%s'\n%s", greenCheck, name, RenderSummary(profile))
-		fmt.Print(padStyle.Render(output))
+		fmt.Println(padStyle.Render(output))
 		return nil
 	},
 }
@@ -104,7 +104,7 @@ var showCmd = &cobra.Command{
 			return err
 		}
 
-		fmt.Print(padStyle.Render(RenderSummary(profile)))
+		fmt.Println(padStyle.Render(RenderSummary(profile)))
 		return nil
 	},
 }
@@ -118,7 +118,7 @@ var listCmd = &cobra.Command{
 			return err
 		}
 		current, _ := lab.CurrentLab()
-		fmt.Print(padStyle.Render(RenderList(labs, current)))
+		fmt.Println(padStyle.Render(RenderList(labs, current)))
 		return nil
 	},
 }
@@ -162,7 +162,7 @@ var whichCmd = &cobra.Command{
 			return nil
 		}
 
-		fmt.Print(padStyle.Render(RenderSummary(profile)))
+		fmt.Println(padStyle.Render(RenderSummary(profile)))
 		return nil
 	},
 }
@@ -229,6 +229,6 @@ func rootDefault(cmd *cobra.Command, args []string) error {
 
 	greenCheck := lipgloss.NewStyle().Foreground(lipgloss.Color("108")).Render("✓")
 	fmt.Printf("%s Reloaded lab '%s'\n", greenCheck, current)
-	fmt.Print(padStyle.Render(RenderSummary(profile)))
+	fmt.Println(padStyle.Render(RenderSummary(profile)))
 	return nil
 }
